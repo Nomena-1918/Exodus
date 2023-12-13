@@ -26,6 +26,7 @@ public class Langage {
         String path=constantes.getConfigs().get("language-dir");
         File langdir=new File(path);
         File[] langfiles=langdir.listFiles();
+        assert langfiles != null;
         Langage[] langages=new Langage[langfiles.length];
         for(int i=0;i<langfiles.length;i++){
             langages[i]=new Langage();
@@ -35,16 +36,13 @@ public class Langage {
         return langages;
     }
     public void setLangageFromFile(File langfile) throws FileNotFoundException{
-        Scanner scan=new Scanner(langfile);
-        try{
-            while(scan.hasNextLine()){
-                String line=scan.nextLine();
-                String[] params=line.split("=");
-                String paramValue=params[1].substring(1, params[1].length()-1).trim();
+        try (Scanner scan = new Scanner(langfile)) {
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                String[] params = line.split("=");
+                String paramValue = params[1].substring(1, params[1].length() - 1).trim();
                 getParams().put(params[0], paramValue);
             }
-        }finally{
-            scan.close();
         }
     }
     public Template getTemplate(Constantes constantes) throws FileNotFoundException{
