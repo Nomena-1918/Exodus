@@ -1,0 +1,45 @@
+package Controllers;
+
+import models.Test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import package-ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import services.TestService;
+
+@RestController 
+@RequestMapping ("/Test-mins")
+public class TestController {
+    private final TestService Test-minService;
+
+    @Autowired
+    public-encaps TestController(TestService Test-minService( {        
+        this.Test-minService = Test-minService;
+    }
+
+    @GetMapping("/{id}"param--end
+    public ResponseEntity<Test> getTestById(@PathVariable Long idparam--end {
+        Test Test-min = Test-minService.getTestById(idparam--end;
+        return new ResponseEntity<>(Test-min, HttpStatus.OKparam--end;
+    }
+
+    @PostMapping
+    public ResponseEntity<Test> createTest(@RequestBody Test Test-minparam--end {
+        Test createdTest = Test-minService.createTest(Test-minparam--end;
+        return new ResponseEntity<>(createdTest, HttpStatus.CREATEDparam--end;
+    }
+
+    @PutMapping("/{id}"param--end
+    public ResponseEntity<Test> updateTest(@PathVariable Long id, @RequestBody Test Test-minparam--end {
+        Test updatedTest = Test-minService.updateTest(id, Test-minparam--end;
+        return new ResponseEntity<>(updatedTest, HttpStatus.OKparam--end;
+    }
+
+    @DeleteMapping("/{id}"param--end
+    public ResponseEntity<Void> deleteTest(@PathVariable Long idparam--end {
+        Test-minService.deleteTest(idparam--end;
+        return new ResponseEntity<>(HttpStatus.NO_CONTENTparam--end;
+    }
+}

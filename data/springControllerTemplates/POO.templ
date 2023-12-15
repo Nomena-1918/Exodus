@@ -4,42 +4,42 @@
 
 ##import## #package-autowired###line-end##
 ##import## #package-http-status###line-end##
-##import## #package-response-entity###line-end##
+##import## #packageresponseentity###line-end##
 ##import## #package-bind-annot###line-end##
 
 ##import## #package-services-value#.#class-name#Service##line-end##
 
 ##annotation-start####rest-controller## 
-##annotation-start####request-mapping## ##annotationbracketstart##"##url-start###class-name-min#s"##annotationbracketend##
+##annotation-start####request-mapping####annotationbracketstart##"##url-start###class-name#s"##annotationbracketend##
 ##class-encaps## ##class## #class-name#Controller ##bracket-start##
-    ##field-encaps## ##final-encaps## #class-name#Service #class-name-min#Service##line-end##
+    ##field-encaps## ##final-encaps## #class-name#Service #class-name#Service##line-end##
 
     ##annotation-start####autowired####annotation-end##
-    ##public-encaps## #class-name#Controller##param-function-start###class-name#Service #class-name-min#Service##param-function-start## ##bracket-start##        
-        ##this####dot###class-name-min#Service = #class-name-min#Service##line-end##
+    ##class-encaps## #class-name#Controller##annotationbracketstart###class-name#Service #class-name#Service##annotationbracketend## ##bracket-start##
+        ##this####dot###class-name#Service = #class-name#Service##line-end##
     ##bracket-end##
 
-    ##annotation-start####get-mapping####param-function-start##"/##bracket-start##id##bracket-end##"##param-function-end##
-    ##rest-encaps## ##response-entity##<#class-name#> get#class-name#ById##param-function-start####annotation-start####path-variable## Long id##param-function-end## ##bracket-start##
-        #class-name# #class-name-min# = #class-name-min#Service.get#class-name#ById##param-function-start##id##param-function-end####line-end##
-        return new ##response-entity##<>##param-function-start###class-name-min#, ##code-200####param-function-end####line-end##
+    ##annotation-start####get-mapping####annotationbracketstart##"/##bracket-start##id##bracket-end##"##annotationbracketend##
+    ##rest-encaps## ##response-entity##<#class-name#> get#class-name#ById##annotationbracketstart####annotation-start####path-variable## Long #id###annotationbracketend## ##bracket-start##
+        #class-name# #class-name# = #class-name#Service.get#class-name#ById##annotationbracketstart##id##annotationbracketend####line-end##
+        return new ##response-entity##<>##annotationbracketstart###class-name#, ##code-200####annotationbracketend####line-end##
     ##bracket-end##
 
     ##annotation-start####post-mapping##
-    ##rest-encaps## ##response-entity##<#class-name#> create#class-name###param-function-start####annotation-start##RequestBody #class-name# #class-name-min###param-function-end## ##bracket-start##
-        #class-name# created#class-name# = #class-name-min#Service.create#class-name###param-function-start###class-name-min###param-function-end####line-end##
-        return new ##response-entity##<>##param-function-start##created#class-name#, HttpStatus.CREATED##param-function-end####line-end##
+    ##rest-encaps## ##response-entity##<#class-name#> create#class-name###annotationbracketstart####annotation-start##RequestBody #class-name# #class-name###annotationbracketend## ##bracket-start##
+        #class-name# created#class-name# = #class-name#Service.create#class-name###annotationbracketstart###class-name###annotationbracketend####line-end##
+        return new ##response-entity##<>##annotationbracketstart##created#class-name#, ##code-created####annotationbracketend####line-end##
     ##bracket-end##
 
-    ##annotation-start####put-mapping####param-function-start##"/##bracket-start##id##bracket-end##"##param-function-end####annotation-end##
-    ##rest-encaps## ##response-entity##<#class-name#> update#class-name###param-function-start####annotation-start####path-variable## Long id, ##annotation-start##RequestBody #class-name# #class-name-min###param-function-end####annotation-end## ##bracket-start##
-        #class-name# updated#class-name# = #class-name-min#Service.update#class-name###param-function-start##id, #class-name-min###param-function-end####line-end##
-        return new ##response-entity##<>##param-function-start##updated#class-name#, ##code-200####param-function-end####line-end##
+    ##annotation-start####put-mapping####annotationbracketstart##"/##bracket-start##id##bracket-end##"##annotationbracketend####annotation-end##
+    ##rest-encaps## ##response-entity##<#class-name#> update#class-name###annotationbracketstart####annotation-start####path-variable## Long #id#, ##annotation-start##RequestBody #class-name# #class-name###annotationbracketend####annotation-end## ##bracket-start##
+        #class-name# updated#class-name# = #class-name#Service.update#class-name###annotationbracketstart##id, #class-name###annotationbracketend####line-end##
+        return new ##response-entity##<>##annotationbracketstart##updated#class-name#, ##code-200####annotationbracketend####line-end##
     ##bracket-end##
 
-    ##annotation-start####delete-mapping####param-function-start##"/##bracket-start##id##bracket-end##"##param-function-end####annotation-end##
-    ##rest-encaps## ##response-entity##<Void> delete#class-name###param-function-start####annotation-start####path-variable## Long id##param-function-end## ##bracket-start##
-        #class-name-min#Service.delete#class-name###param-function-start##id##param-function-end####line-end##
-        return new ##response-entity##<>##param-function-start##HttpStatus.NO_CONTENT##param-function-end####line-end##
+    ##annotation-start####delete-mapping####annotationbracketstart##"/##bracket-start##id##bracket-end##"##annotationbracketend####annotation-end##
+    ##rest-encaps## ##response-entity##<Void> delete#class-name###annotationbracketstart####annotation-start####path-variable## Long #id###annotationbracketend## ##bracket-start##
+        #class-name#Service.delete#class-name###annotationbracketstart##id##annotationbracketend####line-end##
+        return new ##response-entity##<>##annotationbracketstart####code-nocontent####annotationbracketend####line-end##
     ##bracket-end##
 ##bracket-end##

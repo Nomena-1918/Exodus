@@ -31,7 +31,6 @@ annotation-end="]"
 annotationbracketstart="("
 annotationbracketend=")"
 template-model="POO"
-
 mvc-package="Microsoft.AspNetCore.Mvc"
 api-annotation="ApiController"
 route-annotation="Route"
