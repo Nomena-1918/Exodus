@@ -1,0 +1,37 @@
+import mvc-package;
+
+package Controllers
+{
+    @api-annotation
+    @route-annotation("controller")
+
+    public class TestFinalController : controlparent
+    {
+
+        @httpGet-annotation(Http-name-key = "TestFinals")
+        rest-public ienumerable<TestFinal> get-method()
+        {
+            return null;
+        }
+
+        @httpPost-annotation(Http-name-key = "TestFinals")
+        rest-public void post-method()
+        {
+
+        }
+
+        @httpPut-annotation(Http-name-key = "TestFinals")
+        rest-public void put-method(string id)
+        {
+        
+        }
+
+        @httpDelete-annotation(Http-name-key = "TestFinals")
+        rest-public void delete-method(string id)
+        {
+        
+        }
+
+    }
+
+}
