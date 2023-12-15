@@ -1,0 +1,45 @@
+namespace controllers;
+
+using package-models-value.Test;
+
+using package-autowired;
+using package-http-status;
+using packageresponseentity;
+using package-bind-annot;
+
+using package-services-value.TestService;
+
+[rest-[controller] 
+[request-mapping("url-starttests")
+public class TestController {
+    private final-encaps TestService testService;
+
+    [autowired]
+    public TestController(TestService testService) {
+        this.testService = testService;
+    }
+
+    [get-mapping("/{id}")
+    rest-encaps response-entity<Test> getTestById([path-variable Long id) {
+        Test test = testService.getTestById(id);
+        return new response-entity<>(test, code-200);
+    }
+
+    [post-mapping
+    rest-encaps response-entity<Test> createTest([RequestBody Test test) {
+        Test createdTest = testService.createTest(test);
+        return new response-entity<>(createdTest, code-created);
+    }
+
+    [put-mapping("/{id}")]
+    rest-encaps response-entity<Test> upDateOnlyTest([path-variable Long id, [RequestBody Test Test)] {
+        Test upDateOnlydTest = testService.upDateOnlyTest(id, test);
+        return new response-entity<>(upDateOnlydTest, code-200);
+    }
+
+    [delete-mapping("/{id}")]
+    rest-encaps response-entity<Void> deleteTest([path-variable Long id) {
+        testService.deleteTest(id);
+        return new response-entity<>(code-nocontent);
+    }
+}

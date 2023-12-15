@@ -4,7 +4,7 @@ import java.util.Map;
 import veda.godao.utils.StringUtils;
 
 public class SpringControllerTemplate extends Template {
-    public void formatAttrBehavior(String nameController, Langage langage){
+    public void formatStructure(String nameController, Langage langage){
         String struct=getStructure();
 
         for(Map.Entry<String, String> e:langage.getParams().entrySet()){

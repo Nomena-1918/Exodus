@@ -16,7 +16,7 @@ public class SpringControllerApp {
         String nameController = scan.next();
         SpringControllerTemplate temps=cs.getSpringControllerTemplate(constantes);
         try{
-            temps.formatAttrBehavior(nameController, cs);
+            temps.formatStructure(nameController, cs);
             temps.generate(nameController, constantes, cs);
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
