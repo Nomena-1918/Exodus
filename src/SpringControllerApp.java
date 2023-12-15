@@ -14,9 +14,9 @@ public class SpringControllerApp {
         Langage cs = langages[indexLang];
         System.out.print("Controller name :\n>");
         String nameController = scan.next();
-        CsControllerTemplate temps=cs.getCsControllerTemplate(constantes);
+        SpringControllerTemplate temps=cs.getSpringControllerTemplate(constantes);
         try{
-            temps.formatStructure(nameController, cs);
+            temps.formatAttrBehavior(nameController, cs);
             temps.generate(nameController, constantes, cs);
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
