@@ -1,10 +1,10 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+
 import veda.godao.utils.StringUtils;
 
-public class CsControllerTemplate extends Template {
-    
+public class FlameworkTemplate extends Template{
     public void formatStructure(String nameController, Langage langage){
         String struct=getStructure();
         
@@ -12,7 +12,6 @@ public class CsControllerTemplate extends Template {
             struct=struct.replace(e.getKey(), e.getValue());
         }
         struct=struct.replace("class-name", StringUtils.majStart(nameController));
-        struct=struct.replace("package-value", "Controllers");
         setStructure(struct);
     }
 
