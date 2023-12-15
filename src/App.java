@@ -1,40 +1,43 @@
-import java.sql.Connection;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Constantes constantes=new Constantes();
-        Langage[] langages=Langage.getAllLangages(constantes);
         Scanner scan=new Scanner(System.in);
-        System.out.print("Username: ");
-        String username=scan.next();
-        System.out.print("Mot de passe: ");
-        String pwd=scan.next();
-        System.out.print("Base de donnee: ");
-        String dbname=scan.next();
-        System.out.print("Port: ");
-        String port=scan.next();
-        System.out.print("Hote de base de donnees: ");
-        String host=scan.next();
-        System.out.println("SGBD a utiliser:\nPsql\nMysql");
-        String sgbd=scan.next();
-        System.out.print("Nom de l'entite (table): ");
-        String entityName=scan.next();
-        System.out.print("Langage:\n>");
-        for(int i=1;i<=langages.length;i++){
-            System.out.println(i+")"+langages[i-1].getNom());
-        }
-        int indexLang=scan.nextInt();
-        Template temps=langages[indexLang-1].getTemplate(constantes);
-        Connection connex=(Connection) Connexion.class.getMethod("get"+sgbd+"Connexion", String.class, String.class, String.class, String.class, String.class).invoke(Connexion.class, dbname, host, port, username, pwd);
-        DBEntity dbentity=new DBEntity(sgbd, constantes);
-        Entity entity=Entity.getEntity(dbentity, connex, entityName, langages[indexLang-1]);
-        try{
-            temps.formatStructure(langages[indexLang-1], entity);
-            temps.generate(entity, constantes, langages[indexLang-1]);
+        try{    
+            System.out.print("Nom du controller:\n>");
+            String nom=scan.next();
+            System.out.print("Choisir le modele de controller:\n1) Spring\n2) Flamework\n3) .NET\n>");
+            int modele=scan.nextInt();
+            Template temps=null;
+            String configPath=null;
+            Constantes constantes=null;
+            Langage[] langages=null;
+            Langage langage=null;
+            switch(modele){
+                case 2:
+                    configPath="data/flameworkController.config";
+                    constantes=new Constantes(configPath);
+                    langages=Langage.getAllLangages(constantes);
+                    langage=langages[1];
+                    temps=langage.getFlameworkTemplate(constantes);
+                    break;
+                case 3:
+                    configPath="data/csControllerApp.config";
+                    constantes=new Constantes(configPath);
+                    langages=Langage.getAllLangages(constantes);
+                    langage=langages[0];
+                    temps=langage.getCsControllerTemplate(constantes);
+                    break;
+            }
+            if(temps instanceof CsControllerTemplate){
+                ((CsControllerTemplate)temps).formatStructure(nom, langage);
+                ((CsControllerTemplate)temps).generate(nom, constantes, langage);
+            }else if(temps instanceof FlameworkTemplate){
+                ((FlameworkTemplate)temps).formatStructure(nom, langage);
+                ((FlameworkTemplate)temps).generate(nom, constantes, langage);
+            }
         }finally{
             scan.close();
-            connex.close();
         }
     }
 }
