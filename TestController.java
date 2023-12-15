@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import models.Test;
 
@@ -10,36 +10,36 @@ import org.springframework.web.bind.annotation.*;
 import services.TestService;
 
 @RestController 
-@RequestMapping("/Tests")
+@RequestMapping("/tests")
 public class TestController {
-    private final TestService TestService;
+    private final TestService testService;
 
     @Autowired
-    public TestController(TestService TestService) {
-        this.TestService = TestService;
+    public TestController(TestService testService) {
+        this.testService = testService;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Test> getTestById(@PathVariable Long id) {
-        Test Test = TestService.getTestById(id);
-        return new ResponseEntity<>(Test, HttpStatus.OK);
+        Test test = testService.getTestById(id);
+        return new ResponseEntity<>(test, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Test> createTest(@RequestBody Test Test) {
-        Test createdTest = TestService.createTest(Test);
+    public ResponseEntity<Test> createTest(@RequestBody Test test) {
+        Test createdTest = testService.createTest(test);
         return new ResponseEntity<>(createdTest, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Test> updateTest(@PathVariable Long id, @RequestBody Test Test) {
-        Test updatedTest = TestService.updateTest(id, Test);
+        Test updatedTest = testService.updateTest(id, test);
         return new ResponseEntity<>(updatedTest, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTest(@PathVariable Long id) {
-        TestService.deleteTest(id);
+        testService.deleteTest(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

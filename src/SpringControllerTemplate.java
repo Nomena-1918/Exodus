@@ -10,8 +10,8 @@ public class SpringControllerTemplate extends Template {
         for(Map.Entry<String, String> e:langage.getParams().entrySet()){
             struct=struct.replace(e.getKey(), e.getValue());
         }
-        //struct=struct.replace("min-ame", StringUtils.majStart(nameController));
         struct=struct.replace("class-name", StringUtils.majStart(nameController));
+        struct=struct.replace("minclazz", nameController.toLowerCase());
         struct=struct.replace("package-value", "controllers".toLowerCase());
         setStructure(struct);
     }
