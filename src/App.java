@@ -17,21 +17,21 @@ public class App {
                     configPath = "data/springControllerApp.config";
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
-                    langage = langages[1];
+                    langage = langages[0];
                     temps = langage.getSpringControllerTemplate(constantes);
                     break;
                 case 2:
                     configPath = "data/flameworkController.config";
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
-                    langage = langages[1];
+                    langage = langages[0];
                     temps = langage.getFlameworkTemplate(constantes);
                     break;
                 case 3:
                     configPath = "data/csControllerApp.config";
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
-                    langage = langages[0];
+                    langage = langages[1];
                     temps = langage.getCsControllerTemplate(constantes);
                     break;
             }
