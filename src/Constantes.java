@@ -9,32 +9,26 @@ public class Constantes {
     public Constantes() throws FileNotFoundException{
         configs=new HashMap<>();
         File conf=new File("data/app.config");
-        Scanner scan=new Scanner(conf);
-        try{
-            while(scan.hasNextLine()){
-                String line=scan.nextLine();
-                String[] confs=line.split("=");
-                String confValue=confs[1].substring(1, confs[1].length()-1).trim();
+        try (Scanner scan = new Scanner(conf)) {
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                String[] confs = line.split("=");
+                String confValue = confs[1].substring(1, confs[1].length() - 1).trim();
                 configs.put(confs[0], confValue);
             }
-        }finally{
-            scan.close();
         }
     }
 
     public Constantes(String configPath) throws FileNotFoundException{
         configs=new HashMap<>();
         File conf=new File(configPath);
-        Scanner scan=new Scanner(conf);
-        try{
-            while(scan.hasNextLine()){
-                String line=scan.nextLine();
-                String[] confs=line.split("=");
-                String confValue=confs[1].substring(1, confs[1].length()-1).trim();
+        try (Scanner scan = new Scanner(conf)) {
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                String[] confs = line.split("=");
+                String confValue = confs[1].substring(1, confs[1].length() - 1).trim();
                 configs.put(confs[0], confValue);
             }
-        }finally{
-            scan.close();
         }
     }
 

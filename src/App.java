@@ -8,9 +8,9 @@ public class App {
             System.out.print("Choisir le modele de controller:\n1) Spring MVC\n2) Java Flamework\n3) C# .NET\n>");
             int modele = scan.nextInt();
             Template temps = null;
-            String configPath = null;
+            String configPath;
             Constantes constantes = null;
-            Langage[] langages = null;
+            Langage[] langages;
             Langage langage = null;
             switch (modele) {
                 case 1:
