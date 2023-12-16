@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Langage {
     private String nom;
     private HashMap<String, String> params;
-    
     public Langage() {
         params=new HashMap<>();
     }

@@ -7,8 +7,10 @@ public class SpringControllerApp {
         Langage[] langages=Langage.getAllLangages(constantes);
         Scanner scan=new Scanner(System.in);
         System.out.print("Langage:\n>");
-        for(int i=1;i<=langages.length;i++){
-            System.out.println(i+")"+langages[i-1].getNom());
+        int i = 1;
+        for(Langage l : langages){
+            System.out.println(i+")"+l.getNom());
+            i++;
         }
         int indexLang=scan.nextInt() - 1;
         Langage cs = langages[indexLang];
