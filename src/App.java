@@ -18,6 +18,7 @@ public class App {
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
                     langage = Langage.getLangageByName(langages, "java");
+                    assert langage != null;
                     temps = langage.getSpringControllerTemplate(constantes);
                     break;
                 case 2:
@@ -25,6 +26,7 @@ public class App {
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
                     langage = Langage.getLangageByName(langages, "java");
+                    assert langage != null;
                     temps = langage.getFlameworkTemplate(constantes);
                     break;
                 case 3:
@@ -32,6 +34,7 @@ public class App {
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
                     langage = Langage.getLangageByName(langages, "csharp");
+                    assert langage != null;
                     temps = langage.getCsControllerTemplate(constantes);
                     break;
             }
