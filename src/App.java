@@ -8,30 +8,30 @@ public class App {
             System.out.print("Choisir le modele de controller:\n1) Spring MVC\n2) Java Flamework\n3) C# .NET\n>");
             int modele = scan.nextInt();
             Template temps = null;
-            String configPath = null;
+            String configPath;
             Constantes constantes = null;
-            Langage[] langages = null;
+            Langage[] langages;
             Langage langage = null;
             switch (modele) {
                 case 1:
                     configPath = "data/springControllerApp.config";
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
-                    langage = langages[1];
+                    langage = Langage.getLangageByName(langages, "java");
                     temps = langage.getSpringControllerTemplate(constantes);
                     break;
                 case 2:
                     configPath = "data/flameworkController.config";
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
-                    langage = langages[1];
+                    langage = Langage.getLangageByName(langages, "java");
                     temps = langage.getFlameworkTemplate(constantes);
                     break;
                 case 3:
                     configPath = "data/csControllerApp.config";
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
-                    langage = langages[0];
+                    langage = Langage.getLangageByName(langages, "csharp");
                     temps = langage.getCsControllerTemplate(constantes);
                     break;
             }

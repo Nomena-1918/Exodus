@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import veda.godao.utils.StringUtils;
@@ -16,7 +15,7 @@ public class CsControllerTemplate extends Template {
         setStructure(struct);
     }
 
-    public File generate(String nameController, Constantes constantes, Langage langage) throws IOException{
-        return FileUtils.createFile(".", StringUtils.majStart(nameController)+"Controller"+constantes.getConfigs().get(langage.getNom()+"-ext"), getStructure());
+    public void generate(String nameController, Constantes constantes, Langage langage) throws IOException{
+        FileUtils.createFile(".", StringUtils.majStart(nameController) + "Controller" + constantes.getConfigs().get(langage.getNom() + "-ext"), getStructure());
     }
 }
