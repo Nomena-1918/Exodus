@@ -103,4 +103,12 @@ public class Langage {
         }
         return template;
     }
+    public static Langage getLangageByName(Langage[] langages, String target){
+        for(Langage l:langages){
+            if(l.getNom().equalsIgnoreCase(target)){
+                return l;
+            }
+        }
+        return null;
+    }
 }
