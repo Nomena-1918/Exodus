@@ -14,7 +14,7 @@ public class App {
             Langage langage = null;
             switch (modele) {
                 case 1:
-                    configPath = "data/springControllerApp.config";
+                    configPath = "data_exodus/springControllerApp.config";
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
                     langage = Langage.getLangageByName(langages, "java");
@@ -22,7 +22,7 @@ public class App {
                     temps = langage.getSpringControllerTemplate(constantes);
                     break;
                 case 2:
-                    configPath = "data/flameworkController.config";
+                    configPath = "data_exodus/flameworkController.config";
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
                     langage = Langage.getLangageByName(langages, "java");
@@ -30,7 +30,7 @@ public class App {
                     temps = langage.getFlameworkTemplate(constantes);
                     break;
                 case 3:
-                    configPath = "data/csControllerApp.config";
+                    configPath = "data_exodus/csControllerApp.config";
                     constantes = new Constantes(configPath);
                     langages = Langage.getAllLangages(constantes);
                     langage = Langage.getLangageByName(langages, "csharp");

@@ -8,7 +8,7 @@ public class Constantes {
     
     public Constantes() throws FileNotFoundException{
         configs=new HashMap<>();
-        File conf=new File("data/app.config");
+        File conf=new File("data_exodus/app.config");
         try (Scanner scan = new Scanner(conf)) {
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();

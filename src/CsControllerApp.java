@@ -9,9 +9,9 @@ public class CsControllerApp {
             System.out.println("1) C#\n2) Flamework\n");
             int modele = scan.nextInt();
             configPath = switch (modele) {
-                case 1 -> "data/csControllerApp.config";
-                case 2 -> "data/flameworkController.config";
-                default -> "data/app.config";
+                case 1 -> "data_exodus/csControllerApp.config";
+                case 2 -> "data_exodus/flameworkController.config";
+                default -> "data_exodus/app.config";
             };
             Constantes constantes = new Constantes(configPath);
             System.out.print("Langage:\n>");

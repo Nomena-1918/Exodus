@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class SpringControllerApp {
     public static void main(String[] args) throws Exception {
         System.out.println("Generate Spring REST controller");
-        Constantes constantes=new Constantes("data/springControllerApp.config");
+        Constantes constantes=new Constantes("data_exodus/springControllerApp.config");
         Langage[] langages=Langage.getAllLangages(constantes);
         Scanner scan=new Scanner(System.in);
         System.out.print("Langage:\n>");
